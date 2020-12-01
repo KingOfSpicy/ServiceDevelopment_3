@@ -1,0 +1,26 @@
+{
+    "EngineerJoke": {
+    "id": 0,
+    "Jokes": [
+        {"content": "Ejoke0","id": 0},
+        {"content": "Ejoke1","id": 1},
+        {"content": "Ejoke2","id": 2}
+    ]
+    },
+    "InternationalJoke": {
+        "id": 1,
+        "Jokes": [
+            {"content": "Ijoke0","id": 0},
+            {"content": "Ijoke1","id": 1},
+            {"content": "Ijoke2","id": 2}
+        ]
+    },
+    "BlackHumor": {
+        "id": 2,
+        "Jokes": [
+            {"content": "Bjoke0","id": 0},
+            {"content": "Bjoke1","id": 1},
+            {"content": "Bjoke2","id": 2}
+        ]
+    }
+}

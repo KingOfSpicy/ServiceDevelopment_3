@@ -1,0 +1,31 @@
+{
+  "JokeCollection": [
+    {
+      "id": 0,
+      "name": "EngineerJoke",
+      "catJokes": [
+	  {"id":0, "content":"c0story0"},
+	  {"id":1, "content":"c0story1"},
+	  {"id":2, "content":"c0story2"}
+	  ]
+    },
+    {
+      "id": 1,
+      "name": "InternationalJoke",
+      "catJokes": [
+	  {"id":3, "content":"c1story0"},
+	  {"id":4, "content":"c1story1"},
+	  {"id":5, "content":"c1story2"}
+	  ]
+    },
+    {
+      "id": 2,
+      "name": "BlackHumor",
+      "catJokes": [
+	  {"id":6, "content":"c2story0"},
+	  {"id":7, "content":"c2story1"},
+	  {"id":8, "content":"c2story2"}
+	  ]
+    }
+  ]
+}

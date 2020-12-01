@@ -1,0 +1,29 @@
+[
+    {
+        "id":0,
+        "Category":"EngineerJoke",
+        "Collection":{
+            {"id":0,"content":"Ejoke1"},
+            {"id":1,"content":"Ejoke1"},
+            {"id":2,"content":"Ejoke1"}
+        }
+    },
+    {
+        "id":1,
+        "Category":"InternationalJoke",
+        "Collection":[
+            {"id":0,"content":"Ijoke1"},
+            {"id":1,"content":"Ijoke1"},
+            {"id":2,"content":"Ijoke1"}
+        ]
+    },
+    {
+        "id":2,
+        "Category":"BlackHumor",
+        "Collection":[
+            {"id":0,"content":"Bjoke1"},
+            {"id":1,"content":"Bjoke1"},
+            {"id":2,"content":"Bjoke1"}
+        ]
+    }
+]
