@@ -19,6 +19,15 @@ def all():
         #return render_template('home.html', len=len(lst), data=data)
         return render_template('home.html', data=data)
 
+@fun.route('/Alljokes')
+def allj():
+    output=[]
+    for x in data['JokeCollection']:
+        for y in x['catJokes']:
+            jj = y['content']
+            output.append(jj)
+    return render_template('alljokes.html', len=len(output), output=output)
+
 @fun.route('/category')
 def cat():
     output=[]
