@@ -11,13 +11,13 @@ def all():
     if request.method == 'POST':
         prep = data['JokeCollection']
         prep.append(request.json)
-        #return data
+        return data
         #return render_template('home.html', len=len(lst), data=data)
-        return render_template('home.html', data=data)
+        #return render_template('home.html', data=data)
     else:
-        #return data
+        return data
         #return render_template('home.html', len=len(lst), data=data)
-        return render_template('home.html', data=data)
+        #return render_template('home.html', data=data)
 
 @fun.route('/category')
 def cat():
@@ -25,7 +25,9 @@ def cat():
     for x in data['JokeCollection']:
         #for y in x['name']:
         output.append(x['name'])
-    return render_template('cats.html', len=len(output), output=output)
+        json_categories = json.dumps(output)
+    return json_categories
+    #return render_template('cats.html', len=len(output), output=output)
     #output = "" 
     #for item in data['JokeCollection']:
         #cat_name = item['name']
@@ -40,7 +42,8 @@ def R():
             pick1fca.append(y)
     shuffle(pick1fca)
     getContent = pick1fca.pop()
-    return render_template('randomj.html', like=getContent['like'],  dislike=getContent['dislike'], onejoke=getContent['content'])
+    return getContent
+    #return render_template('randomj.html', like=getContent['like'],  dislike=getContent['dislike'], onejoke=getContent['content'])
 
 @fun.route('/category/<int:id>', methods = ['GET', 'POST'])
 def cat0(id):
@@ -69,7 +72,9 @@ def cat_takeAlljokes(id):
     for x in data['JokeCollection'][id]['catJokes']:
         jj = x['content']
         output.append(jj)
-    return render_template('categoryjoke.html', len=len(output), output=output)
+    json_thisCjokes = json.dumps(output)
+    return json_thisCjokes
+    #return render_template('categoryjoke.html', len=len(output), output=output)
 
 @fun.route('/category/0/catJokes/<int:id>', methods = ['GET', 'POST'])
 def cat0_js(id):
@@ -81,8 +86,8 @@ def cat0_js(id):
             onejoke = data['JokeCollection'][0]['catJokes'][id]['content']
             like = data['JokeCollection'][0]['catJokes'][id]['like']
             dislike = data['JokeCollection'][0]['catJokes'][id]['dislike']
-            return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
-
+            #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            return data['JokeCollection'][0]['catJokes'][id]
 
         elif request.form.get('submit_b'):
             data['JokeCollection'][0]['catJokes'][id]['dislike'] = data['JokeCollection'][0]['catJokes'][id]['dislike']+1
@@ -91,14 +96,17 @@ def cat0_js(id):
             onejoke = data['JokeCollection'][0]['catJokes'][id]['content']
             like = data['JokeCollection'][0]['catJokes'][id]['like']
             dislike = data['JokeCollection'][0]['catJokes'][id]['dislike']
-            return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
             #return render_template('onejoke.html', onejoke=onejoke)
+            return data['JokeCollection'][0]['catJokes'][id]
             
     else:
-        like = data['JokeCollection'][0]['catJokes'][id]['like']
-        dislike = data['JokeCollection'][0]['catJokes'][id]['dislike']
-        onejoke = data['JokeCollection'][0]['catJokes'][id]['content']
-        return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+        #like = data['JokeCollection'][0]['catJokes'][id]['like']
+        #dislike = data['JokeCollection'][0]['catJokes'][id]['dislike']
+        #onejoke = data['JokeCollection'][0]['catJokes'][id]['content']
+        #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+        return data['JokeCollection'][0]['catJokes'][id]
+
 
 
 @fun.route('/category/1/catJokes/<int:id>', methods = ['GET', 'POST'])
@@ -111,8 +119,10 @@ def cat1_js(id):
             onejoke = data['JokeCollection'][1]['catJokes'][id]['content']
             like = data['JokeCollection'][1]['catJokes'][id]['like']
             dislike = data['JokeCollection'][1]['catJokes'][id]['dislike']
-            return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
             #return render_template('onejoke.html', onejoke=onejoke)
+            return data['JokeCollection'][1]['catJokes'][id]
+
 
 
         elif request.form.get('submit_b'):
@@ -122,14 +132,18 @@ def cat1_js(id):
             onejoke = data['JokeCollection'][1]['catJokes'][id]['content']
             like = data['JokeCollection'][1]['catJokes'][id]['like']
             dislike = data['JokeCollection'][1]['catJokes'][id]['dislike']
-            return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
             #return render_template('onejoke.html', onejoke=onejoke)
+            return data['JokeCollection'][1]['catJokes'][id]
+
             
     else:
-        like = data['JokeCollection'][1]['catJokes'][id]['like']
-        dislike = data['JokeCollection'][1]['catJokes'][id]['dislike']
-        onejoke = data['JokeCollection'][1]['catJokes'][id]['content']
-        return render_template('onejoke.html', onejoke=onejoke)
+        #like = data['JokeCollection'][1]['catJokes'][id]['like']
+        #dislike = data['JokeCollection'][1]['catJokes'][id]['dislike']
+        #onejoke = data['JokeCollection'][1]['catJokes'][id]['content']
+        #return render_template('onejoke.html', onejoke=onejoke)
+        return data['JokeCollection'][1]['catJokes'][id]
+
 
 @fun.route('/category/2/catJokes/<int:id>', methods = ['GET', 'POST'])
 def cat2_js(id):
@@ -141,7 +155,9 @@ def cat2_js(id):
             onejoke = data['JokeCollection'][2]['catJokes'][id]['content']
             like = data['JokeCollection'][2]['catJokes'][id]['like']
             dislike = data['JokeCollection'][2]['catJokes'][id]['dislike']
-            return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            return data['JokeCollection'][2]['catJokes'][id]
+
 
 
         elif request.form.get('submit_b'):
@@ -151,14 +167,18 @@ def cat2_js(id):
             onejoke = data['JokeCollection'][2]['catJokes'][id]['content']
             like = data['JokeCollection'][2]['catJokes'][id]['like']
             dislike = data['JokeCollection'][2]['catJokes'][id]['dislike']
-            return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
+            #return render_template('onejoke.html', like=like, dislike=dislike, onejoke=onejoke)
             #return render_template('onejoke.html', onejoke=onejoke)
+            return data['JokeCollection'][2]['catJokes'][id]
+
             
     else:
-        like = data['JokeCollection'][2]['catJokes'][id]['like']
-        dislike = data['JokeCollection'][2]['catJokes'][id]['dislike']
-        onejoke = data['JokeCollection'][2]['catJokes'][id]['content']
-        return render_template('onejoke.html', onejoke=onejoke)
+        #like = data['JokeCollection'][2]['catJokes'][id]['like']
+        #dislike = data['JokeCollection'][2]['catJokes'][id]['dislike']
+        #onejoke = data['JokeCollection'][2]['catJokes'][id]['content']
+        #return render_template('onejoke.html', onejoke=onejoke)
+        return data['JokeCollection'][2]['catJokes'][id]
+
 
 if __name__ == "__main__":
     fun.run(debug=True)
