@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Joke Collection</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>{{ displayjoke }}</h1>
+    <br>
+    <h2 style="font-size: 40px;">Categories</h2>
+    <ol>
+        {% for i in range(0, len) %}
+        <a href="/category/{{i}}/catJokes" style="font-size: 30px;">{{output[i]}}</a>
+        <br>
+        <br>
+        <!--<p>{{output[i]}}<p>-->
+        
+        {% endfor %}
+    </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Joke Collection</title>
+{% endblock %}
+
+{% block body %}
+<div class="content", style="text-align: center;">
+    <h2>{{ onejoke }}</h2>
+    <br>
+    <h4>like: {{ like }}</h4>
+    <h4>dislike: {{ dislike }}</h4>
+    <!--
+    <a href="/category/0/catJokes/{{id}}">like</a>
+    <br>
+    <a href="/category/0/catJokes/{{id}}">dislike</a>-->
+</div>
+{% endblock %}
